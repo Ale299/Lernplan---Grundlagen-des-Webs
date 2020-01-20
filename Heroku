@@ -7,7 +7,6 @@ const PubSub = require('pubsub-js'),
       readline = require('readline');
 
       
-
 const rl = readline.createInterface({
 
         input: process.stdin,
@@ -16,17 +15,11 @@ const rl = readline.createInterface({
 
       })
 
- 
-
 var app = express();
-
- 
 
 var server = http.createServer(app);
 
 server.listen(8000);
-
- 
 
 var warten = 'ist in der Warteschlange. Bitte haben Sie noch etwas Geduld', 
 
@@ -34,11 +27,7 @@ var warten = 'ist in der Warteschlange. Bitte haben Sie noch etwas Geduld',
 
     geliefert = 'wird gerade geliefert';
 
- 
-
 var pizzaTopic = 'Meine Pizza'
-
- 
 
 var httpAusgabe = function (statusText, zeitangabe) {
 
@@ -52,23 +41,13 @@ var httpAusgabe = function (statusText, zeitangabe) {
 
 }
 
- 
-
 var mySubscriber = function (msg, data) {
 
     //console.log( msg, data );
 
 };
 
- 
-
 var token = PubSub.subscribe(pizzaTopic, mySubscriber);
-
- 
-
-
-
- 
 
 //PubSub.publish(pizzaTopic, httpAusgabe(warten, 30));
 PubSub.publish(pizzaTopic, httpAusgabe(geliefert, 30));
